@@ -27,14 +27,6 @@ import os
 import re
 from setuptools import setup, find_packages
 
-def read_desc():
-    with open('README.rst') as stream:
-        readme = stream.read()
-    with open('CHANGES.rst') as stream:
-        changes = stream.read()
-
-    return readme + '\n\n' + changes
-
 def read_version_number():
     VERSION_PATTERN = re.compile(r"__version__ = '([^']+)'")
     with open(os.path.join('src', 'sphinxcontrib', 'programoutput', '__init__.py')) as stream:
@@ -49,7 +41,7 @@ tests_require = [
 ]
 
 setup(
-    name='sphinxcontrib-programoutput',
+    name='sphinxcontrib-programoutput-rai',
     version=read_version_number(),
     url='https://sphinxcontrib-programoutput.readthedocs.org/',
     license='BSD',
@@ -58,7 +50,6 @@ setup(
     maintainer="Jason Madden",
     maintainer_email='jason@nextthought.com',
     description='Sphinx extension to include program output',
-    long_description=read_desc(),
     keywords="sphinx cli command output program example",
     zip_safe=False,
     classifiers=[
